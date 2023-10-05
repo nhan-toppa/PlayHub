@@ -32,6 +32,7 @@ export default function AppLayout() {
 							/>
 						),
 						href: "/profile",
+                        headerShadowVisible: false,
 					}}
 				/>
 				<Tabs.Screen

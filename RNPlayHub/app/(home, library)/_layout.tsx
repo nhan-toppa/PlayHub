@@ -9,6 +9,7 @@ export default function Layout() {
 				name="index"
 				options={{
 					title: "",
+                    headerShadowVisible: false,
 					headerRight: () => (
 						<>
 							<TouchableOpacity>
@@ -38,7 +39,7 @@ export default function Layout() {
 			<Stack.Screen
 				name="library"
 				options={{
-					headerShown: true,
+                    headerShadowVisible: false,
 				}}
 			/>
 		</Stack>
