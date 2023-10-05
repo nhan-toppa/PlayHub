@@ -1,12 +1,12 @@
 import { View, Text } from "react-native";
 import React from "react";
 
-const Library = () => {
+const Details = () => {
 	return (
 		<View>
-			<Text>Library</Text>
+			<Text>Details</Text>
 		</View>
 	);
 };
 
-export default Library;
+export default Details;

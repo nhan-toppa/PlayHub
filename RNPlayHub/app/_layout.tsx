@@ -1,27 +1,49 @@
 import { Tabs } from "expo-router/tabs";
+import { Image } from "react-native";
+import { icons } from "../constants";
 
 export default function AppLayout() {
 	return (
 		<Tabs>
 			<Tabs.Screen
-				name="index"
+				name="(home)"
 				options={{
-					title: "Home",
+					tabBarShowLabel: false,
+					tabBarIcon: () => (
+						<Image
+							source={icons.home}
+							style={{ width: 24, height: 24 }}
+						/>
+					),
 					href: "/",
+                    headerShown: false
 				}}
 			/>
 			<Tabs.Screen
-				name="profile/index"
+				name="profile"
 				options={{
-					title: "Profile",
+					tabBarShowLabel: false,
+					tabBarIcon: () => (
+						<Image
+							source={icons.profile}
+							style={{ width: 24, height: 24 }}
+						/>
+					),
 					href: "/profile",
 				}}
 			/>
 			<Tabs.Screen
-				name="library/index"
+				name="(library)"
 				options={{
-					title: "Library",
+					tabBarShowLabel: false,
+					tabBarIcon: () => (
+						<Image
+							source={icons.library}
+							style={{ width: 24, height: 24 }}
+						/>
+					),
 					href: "/library",
+                    headerShown: false
 				}}
 			/>
 		</Tabs>
