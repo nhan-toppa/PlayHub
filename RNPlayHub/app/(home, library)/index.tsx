@@ -1,14 +1,15 @@
 import { StatusBar } from "expo-status-bar";
-import { Button, StyleSheet, Text, View } from "react-native";
-import { TouchableHighlight, TouchableOpacity } from "react-native-gesture-handler";
+import { TouchableOpacity, StyleSheet, Text, View } from "react-native";
 import { Link, useRouter } from "expo-router";
+import { useTheme } from "../../contexts/ThemeContext";
 
 export default function Home() {
-    const router = useRouter();
+	const router = useRouter();
+	const { theme } = useTheme();
 	return (
 		<View style={styles.container}>
-			<Text>Open up App.tsx to start working on your app!</Text>
-            <TouchableOpacity onPress={() => router.push("/details")}><Text>Details</Text></TouchableOpacity>
+			<Text>Open up App.tsx to start working on your app! {theme}</Text>
+			<Link href={"/details"}>Details</Link>
 			<StatusBar style="auto" />
 		</View>
 	);
