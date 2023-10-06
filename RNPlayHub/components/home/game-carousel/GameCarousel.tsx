@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
 	},
 	gameCard: {
 		width: 200,
-		paddingRight: 15,
+		paddingRight: 10,
 		borderRadius: 10,
 	},
 });

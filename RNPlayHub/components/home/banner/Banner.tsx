@@ -42,7 +42,7 @@ const Banner = () => {
 								width:
 									windowWidth -
 									SPACING.generalPaddingHorizontal * 2,
-								height: 250,
+								height: 300,
 							}}
 							key={imageIndex}
 						>

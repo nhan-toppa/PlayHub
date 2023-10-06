@@ -10,7 +10,7 @@ export default function AppLayout() {
 		<ThemeProvider>
 			<Tabs
 				screenOptions={{
-					tabBarStyle: { backgroundColor: COLORS.bgDark },
+					tabBarStyle: { backgroundColor: COLORS.bgDark, height: 60, borderTopWidth: 0 },
 					headerStyle: { backgroundColor: COLORS.bgDark },
 				}}
 			>
