@@ -1,6 +1,4 @@
-import { StatusBar } from "expo-status-bar";
 import {
-	TouchableOpacity,
 	StyleSheet,
 	Text,
 	View,
@@ -12,13 +10,16 @@ import {
 } from "react-native";
 import { Link, useRouter } from "expo-router";
 import { useTheme } from "../../contexts/ThemeContext";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { COLORS } from "../../constants";
+import Tabs from "../../components/home/tabs/Tabs";
 
 export default function Home() {
 	const router = useRouter();
 	const { theme } = useTheme();
 	const scrollX = useRef(new Animated.Value(0)).current;
 	const { width: windowWidth } = useWindowDimensions();
+
 	const images = new Array(6).fill(
 		"https://i.ytimg.com/vi/cklw-Yu3moE/maxresdefault.jpg"
 	);
@@ -81,23 +82,17 @@ export default function Home() {
 					})}
 				</View>
 			</View>
-			<View style={styles.box}></View>
+			<Tabs />
 		</SafeAreaView>
 	);
 }
 
 const styles = StyleSheet.create({
-	box: {
-		width: 100,
-		height: 100,
-		backgroundColor: "red",
-	},
 	container: {
 		flex: 1,
-		backgroundColor: "#1e1e1e",
+		backgroundColor: COLORS.bgDark,
 	},
 	scrollContainer: {
-		// height: 300,
 		alignItems: "center",
 		justifyContent: "center",
 	},

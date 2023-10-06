@@ -1,12 +1,14 @@
 import { Stack } from "expo-router/stack";
 import { Image, TouchableOpacity } from "react-native";
-import { icons } from "../../constants";
+import { COLORS, icons } from "../../constants";
 import { FontAwesome } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 
 export default function Layout() {
 	return (
-		<Stack screenOptions={{ headerStyle: { backgroundColor: "#1e1e1e" } }}>
+		<Stack
+			screenOptions={{ headerStyle: { backgroundColor: COLORS.bgDark } }}
+		>
 			<Stack.Screen
 				name="index"
 				options={{
@@ -19,7 +21,7 @@ export default function Layout() {
 									name="search"
 									size={24}
 									color="white"
-                                    style={{ marginRight: 18 }}
+									style={{ marginRight: 18 }}
 								/>
 							</TouchableOpacity>
 							<TouchableOpacity>

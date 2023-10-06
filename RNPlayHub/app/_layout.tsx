@@ -1,6 +1,6 @@
 import { Tabs } from "expo-router/tabs";
 import { Image } from "react-native";
-import { icons } from "../constants";
+import { COLORS, icons } from "../constants";
 import { ThemeProvider } from "../contexts/ThemeContext";
 import { Entypo } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -10,8 +10,8 @@ export default function AppLayout() {
 		<ThemeProvider>
 			<Tabs
 				screenOptions={{
-					tabBarStyle: { backgroundColor: "#1e1e1e" },
-					headerStyle: { backgroundColor: "#1e1e1e" },
+					tabBarStyle: { backgroundColor: COLORS.bgDark },
+					headerStyle: { backgroundColor: COLORS.bgDark },
 				}}
 			>
 				<Tabs.Screen
