@@ -3,6 +3,11 @@ const COLORS = {
     primary: "#07b650",
 }
 
+const SPACING = {
+    generalPaddingHorizontal: 15,
+}
+
 export {
-    COLORS
+    COLORS,
+    SPACING,
 }

@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
 	tabContainer: {
 		flexDirection: "row",
 		justifyContent: "space-around",
-		marginTop: 10,
+		marginTop: 20,
 	},
 	tabButton: {
 		paddingVertical: 8,

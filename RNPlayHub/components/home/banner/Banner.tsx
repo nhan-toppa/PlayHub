@@ -8,7 +8,7 @@ import {
 	ImageBackground,
 } from "react-native";
 import { useRef } from "react";
-import { COLORS } from "../../../constants";
+import { SPACING } from "../../../constants";
 
 const Banner = () => {
 	const scrollX = useRef(new Animated.Value(0)).current;
@@ -38,7 +38,12 @@ const Banner = () => {
 				{images.map((image, imageIndex) => {
 					return (
 						<View
-							style={{ width: windowWidth, height: 250 }}
+							style={{
+								width:
+									windowWidth -
+									SPACING.generalPaddingHorizontal * 2,
+								height: 250,
+							}}
 							key={imageIndex}
 						>
 							<ImageBackground
@@ -86,7 +91,6 @@ const styles = StyleSheet.create({
 	banner: {
 		flex: 1,
 		marginVertical: 4,
-		marginHorizontal: 16,
 		borderRadius: 5,
 		overflow: "hidden",
 		alignItems: "flex-start",
@@ -118,7 +122,7 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		justifyContent: "center",
 		bottom: 15,
-		left: 25,
+		left: 10,
 	},
 });
 
