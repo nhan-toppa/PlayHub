@@ -49,10 +49,10 @@ export default function Home() {
 							>
 								<ImageBackground
 									source={{ uri: image }}
-									style={styles.card}
+									style={styles.banner}
 								>
 									<View style={styles.textContainer}>
-										<Text style={styles.infoText}>
+										<Text style={styles.bannerTitle}>
 											{"Image - " + imageIndex}
 										</Text>
 									</View>
@@ -61,36 +61,63 @@ export default function Home() {
 						);
 					})}
 				</ScrollView>
+				<View style={styles.indicatorContainer}>
+					{images.map((image, imageIndex) => {
+						const width = scrollX.interpolate({
+							inputRange: [
+								windowWidth * (imageIndex - 1),
+								windowWidth * imageIndex,
+								windowWidth * (imageIndex + 1),
+							],
+							outputRange: [8, 16, 8],
+							extrapolate: "clamp",
+						});
+						return (
+							<Animated.View
+								key={imageIndex}
+								style={[styles.normalDot, { width }]}
+							/>
+						);
+					})}
+				</View>
 			</View>
+            <View style={styles.box}></View>
 		</SafeAreaView>
 	);
 }
 
 const styles = StyleSheet.create({
+    box: {
+        width: 100,
+        height: 100,
+        backgroundColor: "red",
+    },
 	container: {
 		flex: 1,
 	},
 	scrollContainer: {
-		height: 300,
+		// height: 300,
 		alignItems: "center",
 		justifyContent: "center",
 	},
-	card: {
+	banner: {
 		flex: 1,
 		marginVertical: 4,
 		marginHorizontal: 16,
 		borderRadius: 5,
 		overflow: "hidden",
-		alignItems: "center",
-		justifyContent: "center",
+		alignItems: "flex-start",
+		justifyContent: "flex-end",
 	},
 	textContainer: {
 		backgroundColor: "rgba(0,0,0, 0.7)",
 		paddingHorizontal: 24,
 		paddingVertical: 8,
 		borderRadius: 5,
+        marginBottom: 50,
+        marginLeft: 10,
 	},
-	infoText: {
+	bannerTitle: {
 		color: "white",
 		fontSize: 16,
 		fontWeight: "bold",
@@ -103,8 +130,11 @@ const styles = StyleSheet.create({
 		marginHorizontal: 4,
 	},
 	indicatorContainer: {
+        position: "absolute",
 		flexDirection: "row",
 		alignItems: "center",
 		justifyContent: "center",
+        bottom: 15,
+        left: 25,
 	},
 });

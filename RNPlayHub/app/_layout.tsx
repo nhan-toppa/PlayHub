@@ -2,20 +2,23 @@ import { Tabs } from "expo-router/tabs";
 import { Image } from "react-native";
 import { icons } from "../constants";
 import { ThemeProvider } from "../contexts/ThemeContext";
+import { Entypo } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function AppLayout() {
 	return (
 		<ThemeProvider>
-			<Tabs>
+			<Tabs
+				screenOptions={{
+					tabBarStyle: { backgroundColor: "#1e1e1e" },
+				}}
+			>
 				<Tabs.Screen
 					name="(home)"
 					options={{
 						tabBarShowLabel: false,
 						tabBarIcon: () => (
-							<Image
-								source={icons.home}
-								style={{ width: 24, height: 24 }}
-							/>
+							<Entypo name="home" size={24} color="white" />
 						),
 						href: "/",
 						headerShown: false,
@@ -32,7 +35,7 @@ export default function AppLayout() {
 							/>
 						),
 						href: "/profile",
-                        headerShadowVisible: false,
+						headerShadowVisible: false,
 					}}
 				/>
 				<Tabs.Screen
@@ -40,9 +43,10 @@ export default function AppLayout() {
 					options={{
 						tabBarShowLabel: false,
 						tabBarIcon: () => (
-							<Image
-								source={icons.library}
-								style={{ width: 24, height: 24 }}
+							<MaterialCommunityIcons
+								name="library-shelves"
+								size={24}
+								color="white"
 							/>
 						),
 						href: "/library",
