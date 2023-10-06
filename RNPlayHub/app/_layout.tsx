@@ -11,6 +11,7 @@ export default function AppLayout() {
 			<Tabs
 				screenOptions={{
 					tabBarStyle: { backgroundColor: "#1e1e1e" },
+					headerStyle: { backgroundColor: "#1e1e1e" },
 				}}
 			>
 				<Tabs.Screen

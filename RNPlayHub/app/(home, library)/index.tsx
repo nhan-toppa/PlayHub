@@ -81,19 +81,20 @@ export default function Home() {
 					})}
 				</View>
 			</View>
-            <View style={styles.box}></View>
+			<View style={styles.box}></View>
 		</SafeAreaView>
 	);
 }
 
 const styles = StyleSheet.create({
-    box: {
-        width: 100,
-        height: 100,
-        backgroundColor: "red",
-    },
+	box: {
+		width: 100,
+		height: 100,
+		backgroundColor: "red",
+	},
 	container: {
 		flex: 1,
+		backgroundColor: "#1e1e1e",
 	},
 	scrollContainer: {
 		// height: 300,
@@ -114,8 +115,8 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 24,
 		paddingVertical: 8,
 		borderRadius: 5,
-        marginBottom: 50,
-        marginLeft: 10,
+		marginBottom: 50,
+		marginLeft: 10,
 	},
 	bannerTitle: {
 		color: "white",
@@ -130,11 +131,11 @@ const styles = StyleSheet.create({
 		marginHorizontal: 4,
 	},
 	indicatorContainer: {
-        position: "absolute",
+		position: "absolute",
 		flexDirection: "row",
 		alignItems: "center",
 		justifyContent: "center",
-        bottom: 15,
-        left: 25,
+		bottom: 15,
+		left: 25,
 	},
 });
