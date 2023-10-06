@@ -3,8 +3,8 @@ import { useState } from "react";
 import { COLORS } from "../../../constants";
 
 const Tabs = () => {
-	const tabs = ["CLOUD", "CONSOLE", "PC"];
-	const [activeTab, setActiveTab] = useState(tabs[0]);
+	const tabs: string[] = ["CLOUD", "CONSOLE", "PC"];
+	const [activeTab, setActiveTab] = useState<string>(tabs[0]);
 
 	return (
 		<View style={styles.tabContainer}>
