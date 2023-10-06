@@ -87,11 +87,11 @@ const styles = StyleSheet.create({
 	scrollContainer: {
 		alignItems: "center",
 		justifyContent: "center",
+		borderRadius: 5,
+		overflow: "hidden",
 	},
 	banner: {
 		flex: 1,
-		marginVertical: 4,
-		borderRadius: 5,
 		overflow: "hidden",
 		alignItems: "flex-start",
 		justifyContent: "flex-end",
