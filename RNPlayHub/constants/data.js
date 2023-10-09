@@ -1,0 +1,10 @@
+const banner = [
+    { id: 1, title: 'Ori and the Blind Forest', url: 'https://i.ytimg.com/vi/cklw-Yu3moE/maxresdefault.jpg', description: "Ori and the Blind Forest tells the tale of a young orphan destined for heroics, through a visually stunning action-platformer crafted by Moon Studios" },
+    { id: 2, title: 'Hollow Knight', url: 'https://snworksceo.imgix.net/mbc/62ef6850-a107-4b76-85da-3e025dadebd0.sized-1000x1000.jpg?w=1000', description: "Forge your own path in Hollow Knight! An epic action adventure through a vast ruined kingdom of insects and heroes" },
+    { id: 3, title: 'Persona 4 Golden', url: 'https://assetsio.reedpopcdn.com/Persona-4-Golden-Screenshot_1.png?width=1200&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp', description: "A coming of age story that sets the protagonist and his friends on a journey kickstarted by a chain of serial murders" },
+    { id: 4, title: 'ELDEN RING', url: 'https://image.api.playstation.com/vulcan/img/rnd/202201/1918/WcbRvn170YRnoDPDVJ0W7c72.jpg', description: "THE NEW FANTASY ACTION RPG. Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between" },
+    { id: 5, title: 'Hades', url: 'https://image.api.playstation.com/vulcan/img/rnd/202107/3019/8gXCRylomLRu6e9PhuaPzBeW.jpg', description: "Defy the god of the dead as you hack and slash out of the Underworld in this rogue-like dungeon crawler from the creators of Bastion, Transistor, and Pyre." },
+    { id: 6, title: 'Party Animals', url: 'https://cdn.akamai.steamstatic.com/steam/apps/1260320/header.jpg?t=1695243290', description: "Fight your friends as puppies, kittens and other fuzzy creatures in PARTY ANIMALS! Paw it out with your friends remotely, or huddle together for chaotic fun on the same screen. Interact with the world under our realistic physics engine. Did I mention PUPPIES?" },
+];
+
+export default { banner };

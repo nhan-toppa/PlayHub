@@ -2,83 +2,62 @@ import {
 	StyleSheet,
 	Text,
 	View,
-	ScrollView,
-	Animated,
 	useWindowDimensions,
-	ImageBackground,
+	Image,
 } from "react-native";
-import { useRef } from "react";
-import { SPACING } from "../../../constants";
+import Carousel, { Pagination } from "react-native-snap-carousel";
+import { useState } from "react";
+import { SPACING, data } from "../../../constants";
 
 const Banner = () => {
-	const scrollX = useRef(new Animated.Value(0)).current;
 	const { width: windowWidth } = useWindowDimensions();
+	const [activeBanner, setActiveBanner] = useState<number>(0);
 
-	const images = new Array(6).fill(
-		"https://i.ytimg.com/vi/cklw-Yu3moE/maxresdefault.jpg"
-	);
+	type ItemType = {
+		id: number;
+		title: string;
+		url: string;
+		description: string;
+	};
+
+	const renderItem = ({ item }: { item: ItemType }) => {
+		return (
+			<View style={styles.bannerContainer}>
+				<Image
+					source={{ uri: item.url }}
+					style={styles.banner}
+					resizeMode="cover"
+				/>
+				<View style={styles.textContainer}>
+					<Text numberOfLines={1} style={styles.bannerTitle}>
+						{item.title}
+					</Text>
+					<Text numberOfLines={3} style={styles.bannerDescription}>
+						{item.description}
+					</Text>
+				</View>
+			</View>
+		);
+	};
 
 	return (
 		<View style={styles.scrollContainer}>
-			<ScrollView
-				horizontal={true}
-				pagingEnabled
-				showsHorizontalScrollIndicator={false}
-				onScroll={Animated.event([
-					{
-						nativeEvent: {
-							contentOffset: {
-								x: scrollX,
-							},
-						},
-					},
-				])}
-				scrollEventThrottle={1}
-			>
-				{images.map((image, imageIndex) => {
-					return (
-						<View
-							style={{
-								width:
-									windowWidth -
-									SPACING.generalPaddingHorizontal * 2,
-								height: 300,
-							}}
-							key={imageIndex}
-						>
-							<ImageBackground
-								source={{ uri: image }}
-								style={styles.banner}
-							>
-								<View style={styles.textContainer}>
-									<Text style={styles.bannerTitle}>
-										{"Image - " + imageIndex}
-									</Text>
-								</View>
-							</ImageBackground>
-						</View>
-					);
-				})}
-			</ScrollView>
-			<View style={styles.indicatorContainer}>
-				{images.map((image, imageIndex) => {
-					const width = scrollX.interpolate({
-						inputRange: [
-							windowWidth * (imageIndex - 1),
-							windowWidth * imageIndex,
-							windowWidth * (imageIndex + 1),
-						],
-						outputRange: [8, 16, 8],
-						extrapolate: "clamp",
-					});
-					return (
-						<Animated.View
-							key={imageIndex}
-							style={[styles.normalDot, { width }]}
-						/>
-					);
-				})}
-			</View>
+			<Carousel
+				data={data.banner}
+				renderItem={renderItem}
+				sliderWidth={windowWidth - SPACING.generalPaddingHorizontal * 2}
+				itemWidth={windowWidth - SPACING.generalPaddingHorizontal * 2}
+				enableSnap={true}
+				loop={true}
+				autoplay={true}
+				onSnapToItem={(index) => setActiveBanner(index)}
+			/>
+			<Pagination
+				dotsLength={data.banner.length}
+				activeDotIndex={activeBanner}
+				containerStyle={styles.indicatorContainer}
+				dotStyle={styles.normalDot}
+			/>
 		</View>
 	);
 };
@@ -90,6 +69,10 @@ const styles = StyleSheet.create({
 		borderRadius: 5,
 		overflow: "hidden",
 	},
+	bannerContainer: {
+		width: "100%",
+		height: 300,
+	},
 	banner: {
 		flex: 1,
 		overflow: "hidden",
@@ -97,32 +80,35 @@ const styles = StyleSheet.create({
 		justifyContent: "flex-end",
 	},
 	textContainer: {
+		position: "absolute",
 		backgroundColor: "rgba(0,0,0, 0.7)",
-		paddingHorizontal: 24,
-		paddingVertical: 8,
 		borderRadius: 5,
-		marginBottom: 50,
-		marginLeft: 10,
+		paddingVertical: 5,
+		paddingHorizontal: 12,
+		width: "60%",
+		height: 90,
+		bottom: 30,
+		left: 10,
 	},
 	bannerTitle: {
 		color: "white",
-		fontSize: 16,
+		fontSize: 20,
 		fontWeight: "bold",
 	},
+	bannerDescription: { color: "white" },
 	normalDot: {
-		height: 8,
-		width: 8,
-		borderRadius: 4,
-		backgroundColor: "silver",
-		marginHorizontal: 4,
+		width: 10,
+		height: 10,
+		borderRadius: 5,
+		marginHorizontal: 0,
+		backgroundColor: "rgba(255, 255, 255, 0.92)",
 	},
 	indicatorContainer: {
 		position: "absolute",
-		flexDirection: "row",
-		alignItems: "center",
-		justifyContent: "center",
-		bottom: 15,
-		left: 10,
+		bottom: -20,
+		left: -10,
+		padding: 0,
+		margin: 0,
 	},
 });
 
