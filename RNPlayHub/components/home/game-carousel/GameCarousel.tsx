@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { useRef } from "react";
 import { data } from "../../../constants";
+import { useRouter } from "expo-router";
 
 interface Props {
 	tabs: string[];
@@ -15,6 +16,7 @@ interface Props {
 }
 
 const GameCarousel = ({ tabs, activeTab }: Props): JSX.Element => {
+	const router = useRouter();
 	type Game = {
 		id: number;
 		title: string;
@@ -61,7 +63,13 @@ const GameCarousel = ({ tabs, activeTab }: Props): JSX.Element => {
 				{games
 					.filter((game) => game.id > 6)
 					.map((item, index) => (
-						<TouchableOpacity key={index} style={styles.gameCard}>
+						<TouchableOpacity
+							key={index}
+							style={styles.gameCard}
+							onPress={() =>
+								router.push(`/game-details/${item.id}`)
+							}
+						>
 							<ImageBackground
 								source={{ uri: item.url }}
 								style={{ flex: 1 }}

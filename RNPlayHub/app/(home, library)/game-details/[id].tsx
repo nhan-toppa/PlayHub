@@ -7,7 +7,7 @@ const Details = () => {
 	const item = data.games.find((game) => game.id === Number(id));
 	return (
 		<View>
-			<Text>Details</Text>
+			<Text>{item?.title ?? "Not found"}</Text>
 		</View>
 	);
 };
