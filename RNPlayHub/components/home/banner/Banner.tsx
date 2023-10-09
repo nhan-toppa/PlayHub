@@ -4,25 +4,31 @@ import {
 	View,
 	useWindowDimensions,
 	Image,
+	TouchableOpacity,
 } from "react-native";
 import Carousel, { Pagination } from "react-native-snap-carousel";
 import { useState } from "react";
 import { SPACING, data } from "../../../constants";
+import { useRouter } from "expo-router";
 
 const Banner = () => {
 	const { width: windowWidth } = useWindowDimensions();
 	const [activeBanner, setActiveBanner] = useState<number>(0);
+	const router = useRouter();
 
 	type ItemType = {
 		id: number;
 		title: string;
 		url: string;
-		description: string;
+		description?: string;
 	};
 
 	const renderItem = ({ item }: { item: ItemType }) => {
 		return (
-			<View style={styles.bannerContainer}>
+			<TouchableOpacity
+				style={styles.bannerContainer}
+				onPress={() => router.push(`/game-details/${item.id}`)}
+			>
 				<Image
 					source={{ uri: item.url }}
 					style={styles.banner}
@@ -36,14 +42,14 @@ const Banner = () => {
 						{item.description}
 					</Text>
 				</View>
-			</View>
+			</TouchableOpacity>
 		);
 	};
 
 	return (
 		<View style={styles.scrollContainer}>
 			<Carousel
-				data={data.banner}
+				data={data.games.filter((game) => game.id < 6)}
 				renderItem={renderItem}
 				sliderWidth={windowWidth - SPACING.generalPaddingHorizontal * 2}
 				itemWidth={windowWidth - SPACING.generalPaddingHorizontal * 2}
@@ -53,7 +59,7 @@ const Banner = () => {
 				onSnapToItem={(index) => setActiveBanner(index)}
 			/>
 			<Pagination
-				dotsLength={data.banner.length}
+				dotsLength={data.games.filter((game) => game.id <= 6).length}
 				activeDotIndex={activeBanner}
 				containerStyle={styles.indicatorContainer}
 				dotStyle={styles.normalDot}

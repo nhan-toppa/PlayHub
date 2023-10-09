@@ -23,7 +23,7 @@ const GameCarousel = () => {
 				showsHorizontalScrollIndicator={false}
 				style={styles.carouselItems}
 			>
-				{data.gameCarousel.map((item, index) => (
+				{data.games.filter((game) => game.id > 6).map((item, index) => (
 					<TouchableOpacity key={index} style={styles.gameCard}>
 						<ImageBackground
 							source={{ uri: item.url }}
