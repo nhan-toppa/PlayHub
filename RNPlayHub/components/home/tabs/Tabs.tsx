@@ -1,21 +1,27 @@
-import {
-	View,
-	Text,
-	StyleSheet,
-	TouchableOpacity,
-	useWindowDimensions,
-} from "react-native";
-import { useState } from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { useEffect, useState } from "react";
 import { COLORS } from "../../../constants";
+import Animated, { useSharedValue, withSpring, withTiming } from "react-native-reanimated";
 
 const Tabs = () => {
 	const tabs: string[] = ["CLOUD", "CONSOLE", "PC"];
 	const [activeTab, setActiveTab] = useState<string>(tabs[0]);
-	const { width: windowWidth } = useWindowDimensions();
+	const offset = useSharedValue(0);
+
+	useEffect(() => {
+		const index = tabs.indexOf(activeTab);
+		// tabOffset: 125px
+		offset.value = withTiming(index * 125, { duration: 300 });
+	}, [activeTab]);
 
 	return (
 		<View style={styles.tabContainer}>
-			<View style={styles.activeTabPill} />
+			<Animated.View
+				style={[
+					styles.activeTabPill,
+					{ transform: [{ translateX: offset }] },
+				]}
+			/>
 			{tabs.map((tab, index) => (
 				<TouchableOpacity
 					key={index}
@@ -62,7 +68,7 @@ const styles = StyleSheet.create({
 		position: "absolute",
 		top: 5,
 		left: 5,
-		transform: "translateX(125px)",
+		// transform: "translateX(125px)",
 	},
 });
 
