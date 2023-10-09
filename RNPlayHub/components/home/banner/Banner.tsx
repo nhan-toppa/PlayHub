@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
 		paddingVertical: 5,
 		paddingHorizontal: 12,
 		width: "60%",
-		height: 90,
+		height: 100,
 		bottom: 30,
 		left: 10,
 	},

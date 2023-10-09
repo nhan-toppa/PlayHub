@@ -11,7 +11,7 @@ const Tabs = () => {
 	useEffect(() => {
 		const index = tabs.indexOf(activeTab);
 		// tabOffset: 125px
-		offset.value = withTiming(index * 125, { duration: 300 });
+		offset.value = withTiming(index * 125, { duration: 200 });
 	}, [activeTab]);
 
 	return (
