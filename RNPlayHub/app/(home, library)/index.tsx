@@ -19,7 +19,7 @@ export default function Home(): JSX.Element {
 				activeTab={activeTab}
 				setActiveTab={setActiveTab}
 			/>
-			<GameCarousel activeTab={activeTab} />
+			<GameCarousel tabs={tabs} activeTab={activeTab} />
 		</SafeAreaView>
 	);
 }

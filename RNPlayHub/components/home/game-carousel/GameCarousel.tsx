@@ -6,14 +6,44 @@ import {
 	ImageBackground,
 	ScrollView,
 } from "react-native";
-import React from "react";
+import { useRef } from "react";
 import { data } from "../../../constants";
 
 interface Props {
+	tabs: string[];
 	activeTab: string;
 }
 
-const GameCarousel = ({ activeTab }: Props): JSX.Element => {
+const GameCarousel = ({ tabs, activeTab }: Props): JSX.Element => {
+	type Game = {
+		id: number;
+		title: string;
+		url: string;
+		description?: string;
+	};
+
+	let games: Game[] = [];
+	switch (activeTab) {
+		case tabs[0]:
+			games = data.games.filter((game) => game.id >= 7 && game.id <= 12);
+			break;
+		case tabs[1]:
+			games = data.games.filter((game) => game.id >= 13 && game.id <= 16);
+			break;
+		case tabs[2]:
+			games = data.games.filter((game) => game.id >= 17 && game.id <= 20);
+			break;
+		default:
+			games = [];
+	}
+
+	const scrollRef = useRef<ScrollView>(null);
+
+	scrollRef.current?.scrollTo({
+		x: 0,
+		animated: false,
+	});
+
 	return (
 		<View style={styles.carouselContainer}>
 			<View style={styles.carouselHeader}>
@@ -26,8 +56,9 @@ const GameCarousel = ({ activeTab }: Props): JSX.Element => {
 				horizontal={true}
 				showsHorizontalScrollIndicator={false}
 				style={styles.carouselItems}
+				ref={scrollRef}
 			>
-				{data.games
+				{games
 					.filter((game) => game.id > 6)
 					.map((item, index) => (
 						<TouchableOpacity key={index} style={styles.gameCard}>
