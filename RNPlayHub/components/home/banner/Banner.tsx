@@ -49,13 +49,15 @@ const Banner = () => {
 	return (
 		<View style={styles.scrollContainer}>
 			<Carousel
-				data={data.games.filter((game) => game.id < 6)}
+				data={data.games.filter((game) => game.id <= 6)}
 				renderItem={renderItem}
 				sliderWidth={windowWidth - SPACING.generalPaddingHorizontal * 2}
 				itemWidth={windowWidth - SPACING.generalPaddingHorizontal * 2}
 				enableSnap={true}
+				lockScrollWhileSnapping={true}
 				loop={true}
 				autoplay={true}
+				loopClonesPerSide={6}
 				onSnapToItem={(index) => setActiveBanner(index)}
 			/>
 			<Pagination
@@ -63,6 +65,7 @@ const Banner = () => {
 				activeDotIndex={activeBanner}
 				containerStyle={styles.indicatorContainer}
 				dotStyle={styles.normalDot}
+				animatedDuration={100}
 			/>
 		</View>
 	);
