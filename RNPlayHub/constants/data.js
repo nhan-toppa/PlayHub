@@ -7,4 +7,13 @@ const banner = [
     { id: 6, title: 'Party Animals', url: 'https://cdn.akamai.steamstatic.com/steam/apps/1260320/header.jpg?t=1695243290', description: "Fight your friends as puppies, kittens and other fuzzy creatures in PARTY ANIMALS! Paw it out with your friends remotely, or huddle together for chaotic fun on the same screen. Interact with the world under our realistic physics engine. Did I mention PUPPIES?" },
 ];
 
-export default { banner };
+const gameCarousel = [
+    { id: 1, title: "Sea of Thieves", url: "https://static.wikia.nocookie.net/seaofthieves_gamepedia/images/1/14/Sea_of_Thieves_cover_art.jpg/revision/latest/scale-to-width-down/1000?cb=20211226054951" },
+    { id: 2, title: "Halo Infinite", url: "https://upload.wikimedia.org/wikipedia/en/1/14/Halo_Infinite.png" },
+    { id: 3, title: "Craftopia", url: "https://images.igdb.com/igdb/image/upload/t_1080p/co28g1.jpg" },
+    { id: 4, title: "Trine 4", url: "https://i.gadgets360cdn.com/products/large/MV5BMGY1ZTk3ZDgtMmYzNS00NzY0LTk4NDctZTg5M2I4YzIxMjQ2XkEyXkFqcGdeQXVyMTk2OTAzNTI-.-V1-FMjpg-UX1000-1000x1500-1671712213.jpg" },
+    { id: 5, title: "Destiny 2", url: "https://upload.wikimedia.org/wikipedia/en/0/05/Destiny_2_%28artwork%29.jpg" },
+    { id: 6, title: "Far Cry 3", url: "https://upload.wikimedia.org/wikipedia/en/c/c6/Far_Cry_3_PAL_box_art.jpg" },
+]
+
+export default { banner, gameCarousel };

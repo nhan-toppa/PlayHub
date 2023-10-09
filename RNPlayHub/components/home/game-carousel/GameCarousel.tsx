@@ -7,12 +7,9 @@ import {
 	ScrollView,
 } from "react-native";
 import React from "react";
+import { data } from "../../../constants";
 
 const GameCarousel = () => {
-	const images = new Array(6).fill(
-		"https://static.wikia.nocookie.net/seaofthieves_gamepedia/images/1/14/Sea_of_Thieves_cover_art.jpg/revision/latest/scale-to-width-down/1000?cb=20211226054951"
-	);
-
 	return (
 		<View style={styles.carouselContainer}>
 			<View style={styles.carouselHeader}>
@@ -26,16 +23,12 @@ const GameCarousel = () => {
 				showsHorizontalScrollIndicator={false}
 				style={styles.carouselItems}
 			>
-				{images.map((image, index) => (
+				{data.gameCarousel.map((item, index) => (
 					<TouchableOpacity key={index} style={styles.gameCard}>
 						<ImageBackground
-							source={{ uri: image }}
+							source={{ uri: item.url }}
 							style={{ flex: 1 }}
-						>
-							<View>
-								<Text>{"Image - " + index}</Text>
-							</View>
-						</ImageBackground>
+						></ImageBackground>
 					</TouchableOpacity>
 				))}
 			</ScrollView>
