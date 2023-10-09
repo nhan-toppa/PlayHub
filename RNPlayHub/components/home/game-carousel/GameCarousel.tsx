@@ -9,7 +9,11 @@ import {
 import React from "react";
 import { data } from "../../../constants";
 
-const GameCarousel = () => {
+interface Props {
+	activeTab: string;
+}
+
+const GameCarousel = ({ activeTab }: Props): JSX.Element => {
 	return (
 		<View style={styles.carouselContainer}>
 			<View style={styles.carouselHeader}>
@@ -23,14 +27,16 @@ const GameCarousel = () => {
 				showsHorizontalScrollIndicator={false}
 				style={styles.carouselItems}
 			>
-				{data.games.filter((game) => game.id > 6).map((item, index) => (
-					<TouchableOpacity key={index} style={styles.gameCard}>
-						<ImageBackground
-							source={{ uri: item.url }}
-							style={{ flex: 1 }}
-						></ImageBackground>
-					</TouchableOpacity>
-				))}
+				{data.games
+					.filter((game) => game.id > 6)
+					.map((item, index) => (
+						<TouchableOpacity key={index} style={styles.gameCard}>
+							<ImageBackground
+								source={{ uri: item.url }}
+								style={{ flex: 1 }}
+							></ImageBackground>
+						</TouchableOpacity>
+					))}
 			</ScrollView>
 		</View>
 	);

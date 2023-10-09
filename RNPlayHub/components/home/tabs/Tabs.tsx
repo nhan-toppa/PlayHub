@@ -1,11 +1,15 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { useEffect, useState } from "react";
 import { COLORS } from "../../../constants";
-import Animated, { useSharedValue, withSpring, withTiming } from "react-native-reanimated";
+import Animated, { useSharedValue, withTiming } from "react-native-reanimated";
 
-const Tabs = () => {
-	const tabs: string[] = ["CLOUD", "CONSOLE", "PC"];
-	const [activeTab, setActiveTab] = useState<string>(tabs[0]);
+interface Props {
+	tabs: string[];
+	activeTab: string;
+	setActiveTab: (tab: string) => void;
+}
+
+const Tabs = ({ tabs, activeTab, setActiveTab }: Props): JSX.Element => {
 	const offset = useSharedValue(0);
 
 	useEffect(() => {

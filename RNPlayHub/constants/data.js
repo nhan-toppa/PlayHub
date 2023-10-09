@@ -11,6 +11,14 @@ const games = [
     { id: 10, title: "Trine 4", url: "https://i.gadgets360cdn.com/products/large/MV5BMGY1ZTk3ZDgtMmYzNS00NzY0LTk4NDctZTg5M2I4YzIxMjQ2XkEyXkFqcGdeQXVyMTk2OTAzNTI-.-V1-FMjpg-UX1000-1000x1500-1671712213.jpg" },
     { id: 11, title: "Destiny 2", url: "https://upload.wikimedia.org/wikipedia/en/0/05/Destiny_2_%28artwork%29.jpg" },
     { id: 12, title: "Far Cry 3", url: "https://upload.wikimedia.org/wikipedia/en/c/c6/Far_Cry_3_PAL_box_art.jpg" },
+    { id: 13, title: "It Takes Two", url: "https://upload.wikimedia.org/wikipedia/en/thumb/a/aa/It_Takes_Two_cover_art.png/220px-It_Takes_Two_cover_art.png" },
+    { id: 14, title: "Remnant II", url: "https://metarankings.ru/images/uploads/2023/07/remnant-2-boxart-cover.jpg" },
+    { id: 15, title: "Sekiro™: Shadows Die Twice", url: "https://upload.wikimedia.org/wikipedia/en/6/6e/Sekiro_art.jpg" },
+    { id: 16, title: "Persona 5 Royal", url: "https://cdn.cdkeys.com/700x700/media/catalog/product/i/t/it8107wh_400x400_2__3.jpg" },
+    { id: 17, title: "OCTOPATH TRAVELER™", url: "https://upload.wikimedia.org/wikipedia/en/3/34/Octopath_Traveler.jpg" },
+    { id: 18, title: "Stardew Valley", url: "https://store-images.s-microsoft.com/image/apps.44413.65985311967005000.4f51b5e9-febf-4990-8951-33ba59b634c9.924253ef-36b2-4cc0-8bb1-9a97c88d4828?mode=scale&q=90&h=225&w=150" },
+    { id: 19, title: "Rogue Legacy 2", url: "https://cdn1.epicgames.com/offer/4966d5da285c4f2c876937844b0e23ee/RL2tall_1200x1600-7ce135f08c7d29b93e77f6dd853e72ae" },
+    { id: 20, title: "BattleBlock Theater", url: "https://cdn2.steamgriddb.com/file/sgdb-cdn/thumb/0e66221beb8e0a06d4648ae151a52201.jpg" },
 ]
 
 export default { games };
