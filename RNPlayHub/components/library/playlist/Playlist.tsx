@@ -3,13 +3,14 @@ import React from "react";
 import { data } from "../../../constants";
 
 const Playlist = () => {
+    const numberOfColumns = 3;
 	return (
 		<View style={styles.container}>
-			<Text style={styles.header}>Playlist</Text>
+			<Text style={styles.header}>Your playlist</Text>
 			<FlatList
 				data={data.games}
 				renderItem={({ item, index }) => {
-					if (index === data.games.length - 1) {
+					if (index === data.games.length - 1 && data.games.length % numberOfColumns > 1) {
 						return (
 							<>
 								<Image
@@ -30,7 +31,7 @@ const Playlist = () => {
 						/>
 					);
 				}}
-				numColumns={3}
+				numColumns={numberOfColumns}
 				contentContainerStyle={styles.gameGrid}
 				columnWrapperStyle={{ justifyContent: "space-between" }}
 				keyExtractor={(item) => item.id.toString()}
