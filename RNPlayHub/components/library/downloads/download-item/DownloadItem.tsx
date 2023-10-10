@@ -1,9 +1,8 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { COLORS } from "../../../../constants";
-import { useSharedValue, withTiming } from "react-native-reanimated";
 import ProgressBar from "react-native-animated-progress";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface DownloadItemProps {
 	item: {
