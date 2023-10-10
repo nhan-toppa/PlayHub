@@ -1,16 +1,26 @@
-import { View, Text, TouchableOpacity } from "react-native";
-import React from "react";
-import { Link, useRouter } from "expo-router";
+import { SafeAreaView, StyleSheet } from "react-native";
+import { useRouter } from "expo-router";
+import Downloads from "../../components/library/downloads/Downloads";
+import Playlist from "../../components/library/playlist/Playlist";
+import { COLORS, SPACING } from "../../constants";
 
 const Library = () => {
-    const router = useRouter();
+	const router = useRouter();
 	return (
-		<View>
-			<Text>Library</Text>
-            <Link href="(library)/details"><View style={{ width: 24, height: 24, backgroundColor: "salmon" }} /></Link>
-            <TouchableOpacity onPress={() => router.push("/details")}><View style={{ width: 24, height: 24, backgroundColor: "crimson" }} /></TouchableOpacity>
-		</View>
+		<SafeAreaView style={styles.container}>
+			<Downloads />
+			<Playlist />
+		</SafeAreaView>
 	);
 };
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		backgroundColor: COLORS.bgDark,
+		paddingHorizontal: SPACING.generalPaddingHorizontal,
+		paddingTop: 20,
+	},
+});
 
 export default Library;

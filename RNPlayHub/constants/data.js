@@ -21,4 +21,10 @@ const games = [
     { id: 20, title: "BattleBlock Theater", url: "https://cdn2.steamgriddb.com/file/sgdb-cdn/thumb/0e66221beb8e0a06d4648ae151a52201.jpg" },
 ]
 
-export default { games };
+const downloadItems = [
+    { id: 1, title: "Sea of Stars", status: "Downloading", url: "https://image.api.playstation.com/vulcan/ap/rnd/202303/0921/500cf443c7a7e8a36a882c393ecb1d4a20b9c04bfef9ad57.png" },
+    { id: 2, title: "Chained Echoes", status: "Queued", url: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Chained_Echoes_cover_art.jpg/220px-Chained_Echoes_cover_art.jpg" },
+    { id: 3, title: "TUNIC", status: "Queued", url: "https://upload.wikimedia.org/wikipedia/en/8/85/Tunic_cover_art.jpg" },
+]
+
+export default { games, downloadItems };
