@@ -9,8 +9,9 @@ const Downloads = () => {
 			<Text style={styles.header}>Downloads</Text>
 			<FlatList
 				data={data.downloadItems}
-				renderItem={({ item }) => <DownloadItem />}
+				renderItem={({ item }) => <DownloadItem item={item} />}
 				keyExtractor={(item) => item.id.toString()}
+				ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
 			/>
 		</View>
 	);
