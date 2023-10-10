@@ -12,7 +12,7 @@ import { SPACING, data } from "../../../constants";
 import { useRouter } from "expo-router";
 
 const Banner = () => {
-	const { width: windowWidth } = useWindowDimensions();
+	const { width: windowWidth, height: windowHeight } = useWindowDimensions();
 	const [activeBanner, setActiveBanner] = useState<number>(0);
 	const router = useRouter();
 
@@ -26,13 +26,13 @@ const Banner = () => {
 	const renderItem = ({ item }: { item: ItemType }) => {
 		return (
 			<TouchableOpacity
-				style={styles.bannerContainer}
+				style={[styles.bannerContainer, { height: windowHeight * 0.3 }]}
 				onPress={() => router.push(`/game-details/${item.id}`)}
 			>
 				<Image
 					source={{ uri: item.url }}
 					style={styles.banner}
-					resizeMode="cover"
+					// resizeMode="cover"
 				/>
 				<View style={styles.textContainer}>
 					<Text numberOfLines={1} style={styles.bannerTitle}>
@@ -80,13 +80,14 @@ const styles = StyleSheet.create({
 	},
 	bannerContainer: {
 		width: "100%",
-		height: 300,
 	},
 	banner: {
 		flex: 1,
+		height: undefined,
+		width: undefined,
 		overflow: "hidden",
-		alignItems: "flex-start",
-		justifyContent: "flex-end",
+		// alignItems: "flex-start",
+		// justifyContent: "flex-end",
 	},
 	textContainer: {
 		position: "absolute",

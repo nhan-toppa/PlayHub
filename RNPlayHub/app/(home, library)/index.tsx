@@ -1,6 +1,6 @@
-import { StyleSheet, SafeAreaView } from "react-native";
+import { StyleSheet, SafeAreaView, ImageBackground } from "react-native";
 import { useTheme } from "../../contexts/ThemeContext";
-import { COLORS, SPACING } from "../../constants";
+import { COLORS, SPACING, data } from "../../constants";
 import Tabs from "../../components/home/tabs/Tabs";
 import Banner from "../../components/home/banner/Banner";
 import GameCarousel from "../../components/home/game-carousel/GameCarousel";
@@ -29,5 +29,6 @@ const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: COLORS.bgDark,
 		paddingHorizontal: SPACING.generalPaddingHorizontal,
+		paddingTop: 20,
 	},
 });
