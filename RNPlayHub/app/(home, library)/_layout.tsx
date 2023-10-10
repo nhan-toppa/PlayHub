@@ -7,12 +7,15 @@ import { Ionicons } from "@expo/vector-icons";
 export default function Layout() {
 	return (
 		<Stack
-			screenOptions={{ headerStyle: { backgroundColor: COLORS.bgDark } }}
+			screenOptions={{
+				headerStyle: { backgroundColor: COLORS.bgDark },
+				headerTintColor: "white",
+				title: "",
+			}}
 		>
 			<Stack.Screen
 				name="index"
 				options={{
-					title: "",
 					headerShadowVisible: false,
 					headerRight: () => (
 						<>

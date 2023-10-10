@@ -10,14 +10,18 @@ export default function AppLayout() {
 		<ThemeProvider>
 			<Tabs
 				screenOptions={{
-					tabBarStyle: { backgroundColor: COLORS.bgDark, height: 60, borderTopWidth: 0 },
+					tabBarStyle: {
+						backgroundColor: COLORS.bgDark,
+						height: 60,
+						borderTopWidth: 0,
+					},
 					headerStyle: { backgroundColor: COLORS.bgDark },
+					tabBarShowLabel: false,
 				}}
 			>
 				<Tabs.Screen
 					name="(home)"
 					options={{
-						tabBarShowLabel: false,
 						tabBarIcon: () => (
 							<Entypo name="home" size={24} color="white" />
 						),
@@ -28,7 +32,6 @@ export default function AppLayout() {
 				<Tabs.Screen
 					name="profile"
 					options={{
-						tabBarShowLabel: false,
 						tabBarIcon: () => (
 							<Image
 								source={icons.profile}
@@ -42,7 +45,6 @@ export default function AppLayout() {
 				<Tabs.Screen
 					name="(library)"
 					options={{
-						tabBarShowLabel: false,
 						tabBarIcon: () => (
 							<MaterialCommunityIcons
 								name="library-shelves"
